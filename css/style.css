@@ -1,0 +1,40 @@
+.code {
+	height: calc(100vh - 56px);
+}
+.code > div {
+	height: 100%;
+}
+.message-avatar {
+	display: none;
+}
+.message-received .message-text, .message-received .message-name {
+	margin-left: 8px !important;
+}
+.message-sent .message-text {
+	margin-right: 8px !important;
+}
+.message-text .control {
+	width: 100%;
+}
+.message-text  img:parent {
+	    background-color: #eeeeef !important;
+}
+.message.full-width,.message.card-message {
+	max-width: calc(100% - 15px) !important;
+}
+.message-received .message-avatar {
+	display: block;
+	position: static;
+	margin-top: 0px;
+	width: auto !important;
+	height: auto !important;
+}
+.message.card-message .message-text {
+	margin-left: 0px !important;
+	background: transparent !important;
+	padding: 0px;
+}
+.message.card-message .message-text > * {
+	margin: 0px;
+	background: #fefefe !important;
+}
