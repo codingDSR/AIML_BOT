@@ -128,10 +128,10 @@
 
 
 + [*](photos|photo|images|image|photographs|photograph|picture|pictures) of *
-- {"task":"googleimagesearch","term":"<star3>"}
+- {"task":"googleimagesearch","term":"<star2>"}
 
 + [*](define|defination of|what is defination of) *
-- {"task":"wordnicksearch","term":"<star3>"}
+- {"task":"wordnicksearch","term":"<star2>"}
 
 + * (is|of|about) *
 - {"task":"wikisearch","term":"<star3>"}
