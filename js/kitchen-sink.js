@@ -6,7 +6,25 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main', {
 });
 
-
+function listen(myMessages){
+    var loadinglayer = document.getElementById("loading-layer");
+    loadinglayer.classList.add("show");
+    var options = {
+      language:"en-US",
+      matches:5,
+      prompt:"Heyy",
+      showPopup:false,
+      showPartial:false
+    }    
+    window.plugins.speechRecognition.startListening(function(data){
+        loadinglayer.classList.remove("show");
+        var term = data[0];
+        var reply = bot.reply("local-user", term);
+        JSONtoWork(JSON.parse(reply),myMessages);        
+    }, function(e){
+        loadinglayer.classList.remove("show");
+    }, options);
+}
 function JSONtoWork(obj,myMessages){
     console.log(obj);
     if(obj.task == "noprocess") {
@@ -14,6 +32,7 @@ function JSONtoWork(obj,myMessages){
             text: obj.term,
             type: 'received',
         });
+        TextToSpeech(obj.term);
     } else if(obj.task == "googleimagesearch") {
         googleSearchAPI(obj.term,myMessages,true);
     } else if(obj.task == "wordnicksearch") {
@@ -63,6 +82,11 @@ myApp.onPageInit('messages', function (page) {
 
     // Initialize Messagebar
     var myMessagebar = myApp.messagebar('.messagebar');
+    $$('.messagebar a.listen').on('click', function (e) {
+        listen(myMessages);
+    });
+
+
 
     $$('.messagebar a.send-message').on('touchstart mousedown', function () {
         isFocused = document.activeElement && document.activeElement === myMessagebar.textarea[0];
