@@ -19,6 +19,12 @@ function listen(myMessages){
     window.plugins.speechRecognition.startListening(function(data){
         loadinglayer.classList.remove("show");
         var term = data[0];
+        myMessages.addMessage({
+            text: term,
+            avatar: 'http://lorempixel.com/output/people-q-c-200-200-6.jpg',
+            type: 'sent',
+            date: 'Now'
+        });
         var reply = bot.reply("local-user", term);
         JSONtoWork(JSON.parse(reply),myMessages);        
     }, function(e){
