@@ -137,6 +137,8 @@
 - {"task":"wikisearch","term":"<star3>"}
 
 
++ [*](turn|open) (off|on|start|stop) (torch|light|flash|flashlight)[*]
+- {"task":"torch","term":"<star2>"}
 
 
 + what is your (home|office|cell) phone number

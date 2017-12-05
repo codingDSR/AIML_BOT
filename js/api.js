@@ -4,10 +4,10 @@ var googleSearchAPI = null;
 var wordnickDefinationAPI = null;
 var getLocationPoint = null;
 var weatherAPI = null;
+var sendMessage = null;
 let api_key = 'AIzaSyC02URANwpMffw5rvgQRlre-XNfpDVpPYE';
 
-
-function TextToSpeech(msg){
+function textToSpeech(msg){
     TTS.speak({
         text: msg,
         locale: 'en-UK',
@@ -43,7 +43,7 @@ function setup(){
 					</div>
 				</div>`
 			);		
-			TextToSpeech(desc);	
+			textToSpeech(desc);	
 		} else {
 			// google search
 		}
@@ -94,7 +94,7 @@ function setup(){
 							</div>`;
 				}
 				htmlcode = '<div class="row no-gutter" style="width="100%">'+htmlcode+'</div>';
-				TextToSpeech("Here are some images which i found on web");
+				textToSpeech("Here are some images which i found on web");
 			}
 			sendMessage(myMessages,htmlcode);			
 		} else {
@@ -126,7 +126,7 @@ function setup(){
 					<div class="card-footer">${type}</div>
 				</div>`
 			);	
-			TextToSpeech(desc);		
+			textToSpeech(desc);		
 		} else {
 			// google search
 		}
@@ -225,7 +225,7 @@ function setup(){
 	}
 
 	// Send Message
-	function sendMessage(myMessages,htmcode){
+	sendMessage = function(myMessages,htmcode){
 		console.log(myMessages,htmcode);
         	var newmsgNode = myMessages.addMessage({
                 text: htmcode,
