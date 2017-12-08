@@ -14,8 +14,8 @@ function ramUsage(ansref) {
             status = "fine";
         } else {
             status = "excellent";
-        }                    
-        ansref.innerHTML += 
+        }
+        ansref.innerHTML +=
         '<div class="ans ram"><div class="list"><div class="item-divider">Basic Information</div><div class="item"><div>Total RAM</div><div>'+bytesToSize(data.capacity)+'</div></div><div class="item"><div>Available RAM</div><div>'+bytesToSize(data.availableCapacity)+'</div></div><div class="item"><div>Running RAM</div><div>'+bytesToSize(data.capacity-data.availableCapacity)+'</div></div><div class="item-divider">RAM Statistics</div><div class="item"><div id="raminfocircle"><div id="avram"></div><div id="usram"></div></div></div></div></div>';
     });
 }
@@ -32,25 +32,33 @@ function torch(myMessages){
     	} else {
         	_sendMessage(myMessages,"Flashlight not available on this device");
     	}
-	});               
-}   
+	});
+}
 
 
 
-function lastSMS() {
+function lastSMS(myMessage) {
     if(SMS) SMS.listSMS({}, function(data){
-		var html = "";
+			var html = "";
 	    var prepareSMS = "";
 	    if(Array.isArray(data)) {
 		    for(var i in data) {
 		        var sms = data[i];
-		        html += "<div class='ans msg'><h4>"+sms.address + "</h4><hr>" + sms.body + "</div>";
+		        html = `
+							<div class="card">
+								<div class="card-header">${sms.address}</div>
+								<div class="card-content">
+									<div class="card-content-inner">${sms.body}</div>
+								</div>
+							</div>
+						`;
 		        prepareSMS += sms.address + "wants to message you that " + sms.body;
 		        break;
 		    }
-		}
-	    tts(prepareSMS);
+			}
+			sendMessage(myMessage,htmcode);
+	    textToSpeech(prepareSMS);
     }, function(err){
-		alert('error list sms: ' + err);
+			alert('error list sms: ' + err);
 	});
 }

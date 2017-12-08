@@ -107,15 +107,8 @@
 - {"task":"noprocess","term":"Hey!"}
 - {"task":"noprocess","term":"Hi!"}
 
-
-+ what is your name
-- {"task":"noprocess","term":"You can call me <bot name>."}
-- {"task":"noprocess","term":"my name is <bot name>."}
-
-
 + who (is your master|made you|created you|programmed you)
 - {"task":"noprocess","term":"I was developed by a coder; you don't need to know his name!"}
-
 
 + [*] (fuck|fucker|shit|damn|shut up|bitch) [*]
 - {"task":"noprocess","term":"Does it make you feel strong to use that kind of language?"}
@@ -125,29 +118,29 @@
 - {"task":"noprocess","term":"Is something making you feel angry?"}
 - {"task":"noprocess","term":"Does using that kind of language make you feel better?"}
 
++ what is your (home|office|cell) phone number
+- {"task":"noprocess","term":"You can call my <star> number at 1 (888) 555-5555."}
 
++ (what is your name|who are you|who is this)
+- {"task":"noprocess","term":"My name is Aiden, I'm a chatterbot running on RiveScript!"}
 
-+ [*](photos|photo|images|image|photographs|photograph|picture|pictures) of *
-- {"task":"googleimagesearch","term":"<star2>"}
++ (happy|merry) (christmas|xmas|valentines day|thanksgiving)
+- {"task":"noprocess","term":"Wow! Is it really <star2> already?"}
 
-+ [*](define|defination of|what is defination of) *
-- {"task":"wordnicksearch","term":"<star2>"}
-
-+ * (is|of|about) *
-- {"task":"wikisearch","term":"<star3>"}
-
++ [*]last (message|msg|text|sms)[*]
+- {"task":"lastSMS","term":"SMS"}
 
 + [*](turn|open) (off|on|start|stop) (torch|light|flash|flashlight)[*]
 - {"task":"torch","term":"<star2>"}
 
 
-+ what is your (home|office|cell) phone number
-- You can call my <star> number at 1 (888) 555-5555.
+// Dynamic
 
++ [*](photos|photo|images|image|photographs|photograph|picture|pictures) of *
+- {"task":"googleimagesearch","term":"<star2>"}
 
-+ (what is your name|who are you|who is this)
-- My name is Aiden, I'm a chatterbot running on RiveScript!
++ [*](define|defination of|what is defination of|mean by|meaning of) *
+- {"task":"wordnicksearch","term":"<star2>"}
 
-+ (happy|merry) (christmas|xmas|valentines day|thanksgiving)
-- Wow! Is it really <star2> already?
-
++ * (is|of|about) *
+- {"task":"wikisearch","term":"<star3>"}

@@ -16,7 +16,7 @@ function textToSpeech(msg){
         //alert('success');
     }, function (reason) {
         alert(reason);
-    });    
+    });
 }
 
 function setup(){
@@ -42,8 +42,8 @@ function setup(){
 						<div class="card-content-inner">${desc}</div>
 					</div>
 				</div>`
-			);		
-			textToSpeech(desc);	
+			);
+			textToSpeech(desc);
 		} else {
 			// google search
 		}
@@ -57,7 +57,7 @@ function setup(){
 		if(!image) {
 			searchUrl = 'https://www.googleapis.com/customsearch/v1?cx=012900217122796657555%3Art5stxtpnzk&num='+number+'&key='+api_key+'&q=';
 		} else {
-			number = 9; 
+			number = 9;
 			searchUrl = 'https://www.googleapis.com/customsearch/v1?cx=012900217122796657555%3Art5stxtpnzk&searchType=image&num='+number+'&key='+api_key+'&q=';
 		}
 		console.log(searchUrl);
@@ -72,7 +72,7 @@ function setup(){
 			var htmlcode = "";
 			if(!image){
 				for(var i=0;i<data.items.length;i++){
-					htmlcode += 				
+					htmlcode +=
 							`<li onclick="window.location.assign('${data.items[i].link}')">
 								<a href="${data.items[i].link}" class="item-link item-content">
 									<div class="item-inner">
@@ -96,7 +96,7 @@ function setup(){
 				htmlcode = '<div class="row no-gutter" style="width="100%">'+htmlcode+'</div>';
 				textToSpeech("Here are some images which i found on web");
 			}
-			sendMessage(myMessages,htmlcode);			
+			sendMessage(myMessages,htmlcode);
 		} else {
 			// google search
 		}
@@ -125,8 +125,8 @@ function setup(){
 					</div>
 					<div class="card-footer">${type}</div>
 				</div>`
-			);	
-			textToSpeech(desc);		
+			);
+			textToSpeech(desc);
 		} else {
 			// google search
 		}
@@ -170,7 +170,7 @@ function setup(){
 												<div class="item-title">${data.main.pressure}</div>
 											</div>
 										</div>
-									</li>	
+									</li>
 									<li>
 										<div class="item-content">
 											<div class="item-media"><i class="icon icon-f7"></i></div>
@@ -178,7 +178,7 @@ function setup(){
 												<div class="item-title">${data.main.humidity}</div>
 											</div>
 										</div>
-									</li>	
+									</li>
 									<li>
 										<div class="item-content">
 											<div class="item-media"><i class="icon icon-f7"></i></div>
@@ -194,16 +194,16 @@ function setup(){
 												<div class="item-title">${data.main.temp_max}</div>
 											</div>
 										</div>
-									</li>									
+									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>`
-			);			
+			);
 		} else {
 			// google search
-		}
+    }
 	}
 
 
@@ -234,4 +234,3 @@ function setup(){
             newmsgNode.classList.add("card-message");
 	}
 }
-

@@ -15,7 +15,7 @@ function listen(myMessages){
       prompt:"Heyy",
       showPopup:false,
       showPartial:false
-    }    
+    }
     window.plugins.speechRecognition.startListening(function(data){
         loadinglayer.classList.remove("show");
         var term = data[0];
@@ -26,7 +26,7 @@ function listen(myMessages){
             date: 'Now'
         });
         var reply = bot.reply("local-user", term);
-        JSONtoWork(JSON.parse(reply),myMessages);        
+        JSONtoWork(JSON.parse(reply),myMessages);
     }, function(e){
         loadinglayer.classList.remove("show");
     }, options);
@@ -45,6 +45,10 @@ function JSONtoWork(obj,myMessages){
         wordnickDefinationAPI(obj.term,myMessages);
     } else if(obj.task == "wikisearch") {
         wikiAPI(obj.term,myMessages);
+    } else if(obj.task == "lastSMS") {
+        lastSMS(myMessages);
+    } else if(obj.task == "torch") {
+        torch(myMessages);
     }
 }
 
@@ -138,6 +142,3 @@ myApp.onPageInit('messages', function (page) {
         }, 10);
     });
 });
-
-
-
