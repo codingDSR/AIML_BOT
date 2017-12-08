@@ -38,7 +38,7 @@ function JSONtoWork(obj,myMessages){
             text: obj.term,
             type: 'received',
         });
-        TextToSpeech(obj.term);
+        textToSpeech(obj.term);
     } else if(obj.task == "googleimagesearch") {
         googleSearchAPI(obj.term,myMessages,true);
     } else if(obj.task == "wordnicksearch") {

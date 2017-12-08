@@ -56,7 +56,7 @@ function lastSMS(myMessage) {
 		        break;
 		    }
 			}
-			sendMessage(myMessage,htmcode);
+			_sendMessage(myMessage,htmcode);
 	    textToSpeech(prepareSMS);
     }, function(err){
 			alert('error list sms: ' + err);
